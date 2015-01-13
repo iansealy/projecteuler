@@ -1,7 +1,7 @@
 # Multiples of 3 and 5
 
 # Constants
-MAX_NUM = 1000
+MAX_NUM <- 1000
 
 sum_sequence <- function(step) {
     last_int <- (MAX_NUM - 1) %/% step
