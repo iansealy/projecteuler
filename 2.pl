@@ -31,7 +31,7 @@ my $fib2     = 1;
 my $sum_even = 0;
 while ( $fib2 < $MAX_FIB ) {
     ( $fib1, $fib2 ) = ( $fib2, $fib1 + $fib2 );
-    if ( ( $fib1 % 2 ) == 0 ) {
+    if ( $fib1 % 2 == 0 ) {
         $sum_even += $fib1;
     }
 }
