@@ -5,7 +5,7 @@
 
 ## Author     : ian.sealy@sanger.ac.uk
 ## Maintainer : ian.sealy@sanger.ac.uk
-## Created    : 2015-01-16
+## Created    : 2015-01-19
 
 use warnings;
 use strict;
