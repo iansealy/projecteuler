@@ -38,7 +38,7 @@ def get_primes(limit):
         num_sqrt = int(math.sqrt(num))
         for prime in sorted(primes):
             if prime > num_sqrt:
-                continue
+                break
             if num % prime == 0:
                 is_prime = False
                 break
