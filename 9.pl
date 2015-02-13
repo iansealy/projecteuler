@@ -49,7 +49,7 @@ sub get_pythagorean_triplet_by_sum {
         $a++;
     }
 
-    return;
+    return 0, 0, 0;
 }
 
 # Get and check command line options
