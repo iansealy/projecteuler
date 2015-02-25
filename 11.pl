@@ -88,7 +88,7 @@ foreach ( 1, 2 ) {
         push @diagonals, [ get_diagonal( $row, 0, \@grid ) ];
     }
 
-    # Flip grid, so do other diagonals on second iterations
+    # Flip grid, so do other diagonals on second iteration
     @grid = reverse @grid;
 }
 
