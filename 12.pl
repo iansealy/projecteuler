@@ -109,7 +109,7 @@ over five hundred divisors?
 
 =item B<--divisors INT>
 
-The number of divisors over which the triangle number should have.
+The minimum number of divisors the triangle number should have.
 
 =item B<--debug>
 
