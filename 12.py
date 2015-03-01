@@ -29,7 +29,7 @@ def get_factors(number):
 
     factors = [1, number]
 
-    for i in range(2, int(math.ceil(math.sqrt(number)))):
+    for i in range(2, int(math.sqrt(number))):
         if number % i == 0:
             factors.extend([i, number / i])
 
