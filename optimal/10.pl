@@ -24,7 +24,7 @@ get_and_check_options();
 
 my $sieve_bound = int( ( $limit - 1 ) / 2 );    # Last index of sieve
 my @sieve;
-my $cross_limit = int( ( int( sqrt($limit) ) - 1 ) / 2 );
+my $cross_limit = int( ( int( sqrt $limit ) - 1 ) / 2 );
 foreach my $i ( 1 .. $cross_limit ) {
     if ( !$sieve[ $i - 1 ] ) {
 
