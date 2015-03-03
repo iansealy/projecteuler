@@ -39,7 +39,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Highly divisible triangular number')
     parser.add_argument(
-        'divisors', metavar='divisors', type=int, default=500, nargs='?',
+        'divisors', metavar='DIVISORS', type=int, default=500, nargs='?',
         help='The minimum number of divisors the triangle number should have')
     args = parser.parse_args()
 
