@@ -10,7 +10,7 @@ import math
 
 
 def main(args):
-    """Largest prime factor"""
+    """Highly divisible triangular number"""
 
     ordinal = 1
     triangle_number = 1
