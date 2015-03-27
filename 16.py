@@ -22,7 +22,7 @@ def main(args):
                 carry = int(str(digit_sum)[:-1])
             else:
                 carry = 0
-        doubled_digits.extend([int(i) for i in str(carry) if int(i)])
+        doubled_digits.extend([int(i) for i in str(carry)])
         digits = doubled_digits
 
     print(sum(digits))
