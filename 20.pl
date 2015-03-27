@@ -24,7 +24,7 @@ get_and_check_options();
 
 my @digits = (1);
 
-foreach my $number ( 1 .. $factorial ) {
+foreach my $number ( 2 .. $factorial ) {
     my @multiplied_digits = ();
     my $carry             = 0;
     foreach my $digit (@digits) {
