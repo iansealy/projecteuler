@@ -21,7 +21,8 @@ for (i in seq(power)) {
         }
     }
     if ( carry > 0 ) {
-        carry_digits <- as.integer(strsplit(as.character(carry), split=NULL)[[1]])
+        carry_digits <- rev(as.integer(strsplit(as.character(carry),
+                                                split=NULL)[[1]]))
         doubled_digits <- c(doubled_digits, carry_digits)
     }
     digits = doubled_digits
