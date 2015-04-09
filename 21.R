@@ -15,11 +15,11 @@ sum_proper_divisors <- function(number) {
     return(sum)
 }
 
-divisor_sum <- sapply(seq.int(1:(limit-1)), sum_proper_divisors)
+divisor_sum <- sapply(seq.int(limit-1), sum_proper_divisors)
 
 sum <- 0
 
-for (num in seq.int(2:(limit-1))) {
+for (num in seq.int(2, limit-1)) {
     if ( divisor_sum[num] >= limit || divisor_sum[num] == num ) {
         next
     }
