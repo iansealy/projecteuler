@@ -8,11 +8,11 @@ sieve <- rep(FALSE, sieve_bound)
 cross_limit <- (floor(sqrt(limit)) - 1) %/% 2
 
 i <- 1
-while (i <= cross_limit) {
-    if (!sieve[i]) {
+while ( i <= cross_limit ) {
+    if ( !sieve[i] ) {
         # 2 * $i + 1 is prime, so mark multiples
         j <- 2 * i * (i + 1)
-        while (j <= sieve_bound) {
+        while ( j <= sieve_bound ) {
             sieve[j] <- TRUE
             j <- j + 2 * i + 1
         }
@@ -22,8 +22,8 @@ while (i <= cross_limit) {
 
 sum <- 2 # 2 is a prime
 i <- 1
-while (i <= sieve_bound) {
-    if (!sieve[i]) {
+while ( i <= sieve_bound ) {
+    if ( !sieve[i] ) {
         sum <- sum + 2 * i + 1
     }
     i <- i + 1

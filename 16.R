@@ -5,7 +5,7 @@ power <- ifelse(is.na(Args[6]), 1000, as.numeric(Args[6]))
 
 digits <- c(1)
 
-for (i in seq(power)) {
+for ( i in seq(power) ) {
     doubled_digits <- vector()
     carry <- 0
     for ( digit in digits ) {

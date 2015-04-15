@@ -10,7 +10,7 @@ get_primes <- function(limit) {
     while ( num <= limit ) {
         is_prime <- TRUE
         num_sqrt <- as.integer(sqrt(num))
-        for (prime in primes) {
+        for ( prime in primes ) {
             if ( prime > num_sqrt ) {
                 break
             }
@@ -34,7 +34,7 @@ primes <- get_primes(max_num)
 
 limit <- as.integer(sqrt(max_num))
 
-for (prime in primes) {
+for ( prime in primes ) {
     power <- 1
     if ( prime <= limit ) {
         power <- as.integer( log(max_num) / log(prime) )

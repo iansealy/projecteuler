@@ -32,10 +32,10 @@ get_factors <- function(number) {
 
 all_factors <- numeric()
 
-for (num in 2:max_num) {
+for ( num in 2:max_num ) {
     factors <- get_factors(num)
     factor_count <- table(factors)
-    for (factor in names(factor_count)) {
+    for ( factor in names(factor_count) ) {
         if ( !factor %in% names(table(all_factors))
             || factor_count[[factor]] > table(all_factors)[[factor]] ) {
             all_factors <- c(all_factors, factor)

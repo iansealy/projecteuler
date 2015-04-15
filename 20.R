@@ -5,7 +5,7 @@ factorial <- ifelse(is.na(Args[6]), 100, as.numeric(Args[6]))
 
 digits <- c(1)
 
-for (number in seq(2, factorial)) {
+for ( number in seq(2, factorial) ) {
     multiplied_digits <- vector()
     carry <- 0
     for ( digit in digits ) {

@@ -8,7 +8,7 @@ high_num <- 10 ^ digits - 1
 keep_palindrome <- function(number) {
     digit_chars <- strsplit(as.character(as.integer(number)), split=NULL)[[1]]
     reversed_number <- as.integer(paste(rev(digit_chars), collapse=''))
-    if (number == reversed_number) {
+    if ( number == reversed_number ) {
         return(number)
     } else {
         return(0)

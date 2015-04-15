@@ -37,7 +37,7 @@ sum_divisors <- function(number) {
 
 sum <- 0
 
-for (a in seq.int(2, limit-1)) {
+for ( a in seq.int(2, limit-1) ) {
     b <- sum_proper_divisors(a)
     if ( b > a ) {
         if ( sum_proper_divisors(b) == a ) {

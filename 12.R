@@ -6,7 +6,7 @@ divisors <- ifelse(is.na(Args[6]), 500, as.numeric(Args[6]))
 get_factors <- function(number) {
     factors <- c(1, number)
 
-    for (i in seq.int(2, as.integer(sqrt(number)))) {
+    for ( i in seq.int(2, as.integer(sqrt(number))) ) {
         if ( number %% i == 0 ) {
             factors <- c(factors, i, number %/% i)
         }

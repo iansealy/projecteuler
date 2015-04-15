@@ -106,8 +106,8 @@ nums <- strsplit(NUMBERS, "\n")[[1]]
 
 sum <- vector()
 carry <- 0
-while (TRUE) {
-    if (!sum(nchar(nums))) {
+while ( TRUE ) {
+    if ( !sum(nchar(nums)) ) {
         # No more numbers left to add
         break
     }
@@ -123,7 +123,7 @@ while (TRUE) {
     sum <- c(last_digit, sum)
     carry <- as.integer(substr(last_digit_sum, 1, nchar(last_digit_sum)-1))
 }
-if (carry) {
+if ( carry ) {
     sum <- c(carry, sum)
 }
 

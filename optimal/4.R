@@ -15,16 +15,16 @@ is_palindrome <- function(number) {
 max <- 0
 
 num1 <- high_num
-while (num1 >= low_num) {
+while ( num1 >= low_num ) {
     num2 <- num1
     decrease <- 1
-    if (num2 %% 11) {
+    if ( num2 %% 11 ) {
         num2 <- num2 %/% 11 * 11
         decrease <- 11
     }
-    while (num2 >= low_num) {
+    while ( num2 >= low_num ) {
         product <- num1 * num2
-        if (product > max & is_palindrome(product)) {
+        if ( product > max & is_palindrome(product) ) {
             max <- product
         }
         num2 <- num2 - decrease

@@ -25,8 +25,8 @@ day_of_week <- 1 # Monday 1st Jan 1900
 
 sunday_count <- 0
 
-for (year in START_YEAR:END_YEAR) {
-    for (days in get_days_in_month(year, year == END_YEAR) ) {
+for ( year in START_YEAR:END_YEAR ) {
+    for ( days in get_days_in_month(year, year == END_YEAR) ) {
         day_of_week <- ( day_of_week + days ) %% 7
         if ( day_of_week == 0 && year >= COUNT_START_YEAR ) {
             sunday_count <- sunday_count + 1

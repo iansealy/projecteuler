@@ -9,7 +9,7 @@ num <- 5
 while ( length(primes) < ordinal ) {
     is_prime <- TRUE
     num_sqrt <- as.integer(sqrt(num))
-    for (prime in primes) {
+    for ( prime in primes ) {
         if ( prime > num_sqrt ) {
             break
         }

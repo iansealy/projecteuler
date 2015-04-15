@@ -6,7 +6,7 @@ SUM <- 1000
 get_pythagorean_triplet_by_sum <- function(s) {
     s2     <- s %/% 2
     mlimit <- ceiling(sqrt(s2)) - 1
-    for (m in seq(2, mlimit)) {
+    for ( m in seq(2, mlimit) ) {
         if ( s2 %% m == 0 ) {
             sm <- s2 %/% m
             while ( sm %% 2 == 0 ) {
@@ -41,7 +41,7 @@ gcd <- function(a, b) {
         b <- a.tmp
     }
 
-    while (a) {
+    while ( a ) {
         a.tmp <- a
         a <- b %% a
         b <- a.tmp

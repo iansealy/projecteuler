@@ -10,11 +10,11 @@ get_primes_up_to <- function(limit) {
     cross_limit <- (floor(sqrt(limit)) - 1) %/% 2
 
     i <- 1
-    while (i <= cross_limit) {
+    while ( i <= cross_limit ) {
         if (!sieve[i]) {
             # 2 * $i + 1 is prime, so mark multiples
             j <- 2 * i * (i + 1)
-            while (j <= sieve_bound) {
+            while ( j <= sieve_bound ) {
                 sieve[j] <- TRUE
                 j <- j + 2 * i + 1
             }
@@ -23,8 +23,8 @@ get_primes_up_to <- function(limit) {
     }
 
     primes <- rep(0, sieve_bound)
-    for (i in seq(1, sieve_bound)) {
-        if (!sieve[i]) {
+    for ( i in seq(1, sieve_bound) ) {
+        if ( !sieve[i] ) {
             primes[i] <- 2 * i + 1
         }
     }
@@ -51,7 +51,7 @@ while ( num_factors <= divisors ) {
     }
     num_divisors_n1 <- 1
 
-    for (prime in primes) {
+    for ( prime in primes ) {
         if ( prime * prime > n1 ) {
             # Got last prime factor with exponent of 1
             num_divisors_n1 <- num_divisors_n1 * 2

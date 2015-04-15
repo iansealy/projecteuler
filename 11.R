@@ -33,7 +33,7 @@ grid <- matrix(grid, nrow=rows, ncol=cols, byrow=TRUE)
 
 get_max_product <- function(numbers) {
     max_product <- 0
-    for (i in seq(1, length(numbers) - NUM_ADJACENT + 1)) {
+    for ( i in seq(1, length(numbers) - NUM_ADJACENT + 1) ) {
         product <- prod(numbers[i:(i+NUM_ADJACENT-1)])
         if ( product > max_product ) {
             max_product <- product
@@ -45,7 +45,7 @@ get_max_product <- function(numbers) {
 max_product <- 0
 
 # Horizontal lines
-for (i in seq(1, rows)) {
+for ( i in seq(1, rows) ) {
     product <- get_max_product(grid[i,])
     if ( product > max_product ) {
         max_product <- product
@@ -53,7 +53,7 @@ for (i in seq(1, rows)) {
 }
 
 # Vertical lines
-for (i in seq(1, cols)) {
+for ( i in seq(1, cols) ) {
     product <- get_max_product(grid[,i])
     if ( product > max_product ) {
         max_product <- product
@@ -62,16 +62,16 @@ for (i in seq(1, cols)) {
 
 # Diagonal lines
 diags <- list()
-for (iteration in c(1, 2)) {
+for ( iteration in c(1, 2) ) {
     diags <- append(diags, list(diag(grid)))
 
     # Superdiagonals
-    for (i in seq(1, cols-NUM_ADJACENT)) {
+    for ( i in seq(1, cols-NUM_ADJACENT) ) {
         diags <- append(diags, list(diag(grid[1:(rows-i), (i+1):cols])))
     }
 
     # Subdiagonals
-    for (i in seq(1, rows-NUM_ADJACENT)) {
+    for ( i in seq(1, rows-NUM_ADJACENT) ) {
         diags <- append(diags, list(diag(grid[(i+1):rows, 1:(cols-i)])))
     }
 
@@ -79,7 +79,7 @@ for (iteration in c(1, 2)) {
     grid <- grid[rows:1,]
 }
 
-for (i in seq(1, length(diags))) {
+for ( i in seq(1, length(diags)) ) {
     product <- get_max_product(diags[[i]])
     if ( product > max_product ) {
         max_product <- product

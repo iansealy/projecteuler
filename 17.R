@@ -49,7 +49,7 @@ get_in_words <- function(num) {
 }
 
 sum <- 0
-for (num in seq.int(limit)) {
+for ( num in seq.int(limit) ) {
     sum <- sum + nchar(get_in_words(num))
 }
 
