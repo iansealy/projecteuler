@@ -25,15 +25,11 @@ my ( $debug, $help, $man );
 get_and_check_options();
 
 my @primes = get_primes_up_to($max);
-my %factors_of;
-foreach my $num ( 2 .. $max ) {
-    $factors_of{$num} = [ get_prime_factors( $num, \@primes ) ];
-}
 
 my %term;
 
 foreach my $a ( 2 .. $max ) {
-    my @a_factors = @{ $factors_of{$a} };
+    my @a_factors = get_prime_factors( $a, \@primes );
     foreach my $b ( 2 .. $max ) {
         my @factors;
         foreach my $factor (@a_factors) {
