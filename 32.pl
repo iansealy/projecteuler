@@ -25,8 +25,6 @@ get_and_check_options();
 
 # Can only get 9 pandigital number via x * xxxx = xxxx or xx * xxx = xxxx
 
-my $count = 0;
-
 ## no critic (ProhibitMagicNumbers)
 my %product =
   map { $_ => 1 }
