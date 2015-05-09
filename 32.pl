@@ -15,8 +15,6 @@ use Pod::Usage;
 use Carp;
 use version; our $VERSION = qv('v0.1.0');
 
-use Readonly;
-
 # Default options
 my ( $debug, $help, $man );
 
