@@ -41,8 +41,7 @@ sub get_digit {
     while ( $range_end < $n ) {
         $num_digits++;
         $range_start = $range_end + 1;
-        $range_end =
-          $range_end + $num_digits * ( q{9} . q{0} x ( $num_digits - 1 ) );
+        $range_end += $num_digits * ( q{9} . q{0} x ( $num_digits - 1 ) );
     }
     my $range_ordinal = int( ( $n - $range_start ) / $num_digits );
     my $first_in_range = q{1} . q{0} x ( $num_digits - 1 );
