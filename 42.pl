@@ -84,7 +84,7 @@ __END__
 
 =head1 NAME
 
-22.pl
+42.pl
 
 Coded triangle numbers
 
