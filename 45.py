@@ -37,7 +37,7 @@ def main():
         match = [num for num, count in number_count.items()
                  if count == 3 and num != KNOWN]
 
-    print(match[0])
+    print(sorted(match)[0])
 
 if __name__ == '__main__':
     main()
