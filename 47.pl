@@ -16,78 +16,40 @@ use Carp;
 use version; our $VERSION = qv('v0.1.0');
 
 # Default options
-## no critic (ProhibitMagicNumbers)
-my $target = 4;
-my $limit  = 1_000_000;
-## use critic
+my $target = 4;    ## no critic (ProhibitMagicNumbers)
 my ( $debug, $help, $man );
 
 # Get and check command line options
 get_and_check_options();
 
-my @primes = get_primes_up_to($limit);
-
-my $n           = 1;
-my $consecutive = 0;
+my $limit = 100;    ## no critic (ProhibitMagicNumbers)
 my $first;
-while ( !defined $first && $n < $limit ) {
-    $n++;
-    if ( count_prime_factors( $n, \@primes ) == $target ) {
-        $consecutive++;
-        if ( $consecutive == $target ) {
-            $first = $n - $target + 1;
+while ( !defined $first ) {
+    $limit *= 10;    ## no critic (ProhibitMagicNumbers)
+    my @sieve;
+    my $consecutive = 2;
+    foreach my $i ( 2 .. $limit ) {
+        if ( !$sieve[ $i - 2 ] ) {
+            my $j = 2 * $i;
+            while ( $j <= $limit ) {
+                $sieve[ $j - 2 ]++;
+                $j += $i;
+            }
         }
-    }
-    else {
-        $consecutive = 0;
+        if ( defined $sieve[ $i - 2 ] && $sieve[ $i - 2 ] == $target ) {
+            $consecutive++;
+            if ( $consecutive == $target ) {
+                $first = $i - $target + 1;
+                last;
+            }
+        }
+        else {
+            $consecutive = 0;
+        }
     }
 }
 
 printf "%d\n", $first;
-
-sub get_primes_up_to {
-    my ($limit) = @_;    ## no critic (ProhibitReusedNames)
-
-    my $sieve_bound = int( ( $limit - 1 ) / 2 );    # Last index of sieve
-    my @sieve;
-    my $cross_limit = int( ( int( sqrt $limit ) - 1 ) / 2 );
-    foreach my $i ( 1 .. $cross_limit ) {
-        if ( !$sieve[ $i - 1 ] ) {
-
-            # 2 * $i + 1 is prime, so mark multiples
-            my $j = 2 * $i * ( $i + 1 );
-            while ( $j <= $sieve_bound ) {
-                $sieve[ $j - 1 ] = 1;
-                $j += 2 * $i + 1;
-            }
-        }
-    }
-
-    my @primes_up_to = (2);
-    foreach my $i ( 1 .. $sieve_bound ) {
-        if ( !$sieve[ $i - 1 ] ) {
-            push @primes_up_to, 2 * $i + 1;
-        }
-    }
-
-    return @primes_up_to;
-}
-
-sub count_prime_factors {
-    my ( $number, $primes ) = @_;
-
-    my %factor;
-
-    foreach my $prime ( @{$primes} ) {
-        last if $prime > $number;
-        while ( $number % $prime == 0 ) {
-            $factor{$prime} = 1;
-            $number /= $prime;
-        }
-    }
-
-    return scalar keys %factor;
-}
 
 # Get and check command line options
 sub get_and_check_options {
@@ -95,7 +57,6 @@ sub get_and_check_options {
     # Get options
     GetOptions(
         'target=i' => \$target,
-        'limit=i'  => \$limit,
         'debug'    => \$debug,
         'help'     => \$help,
         'man'      => \$man,
@@ -141,7 +102,6 @@ factors. What is the first of these numbers?
 
     47.pl
         [--target INT]
-        [--limit INT]
         [--debug]
         [--help]
         [--man]
@@ -153,10 +113,6 @@ factors. What is the first of these numbers?
 =item B<--target INT>
 
 The target number of consecutive integers and distinct prime factors.
-
-=item B<--limit INT>
-
-The maximum prime number.
 
 =item B<--debug>
 
