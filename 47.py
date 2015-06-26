@@ -16,7 +16,7 @@ def main(args):
     while first is None:
         limit *= 10
         sieve = [0 for _ in range(limit)]
-        consecutive = 2
+        consecutive = 0
         i = 1
         while i < limit:
             i += 1

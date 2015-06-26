@@ -27,7 +27,7 @@ my $first;
 while ( !defined $first ) {
     $limit *= 10;    ## no critic (ProhibitMagicNumbers)
     my @sieve;
-    my $consecutive = 2;
+    my $consecutive = 0;
     foreach my $i ( 2 .. $limit ) {
         if ( !$sieve[ $i - 2 ] ) {
             my $j = 2 * $i;
