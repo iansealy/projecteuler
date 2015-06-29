@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-"""This script solves the Project Euler problem "Self powers, and
-hexagonal". The problem is: Find the last ten digits of the series,
-1^1 + 2^2 + 3^3 + ... + 1000^1000.
+"""This script solves the Project Euler problem "Self powers". The problem is:
+Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
 """
 
 from __future__ import division
