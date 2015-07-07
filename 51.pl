@@ -24,8 +24,16 @@ get_and_check_options();
 
 my $digits = 1;
 my $smallest_prime;
-DIGITS: while (1) {
+while ( !defined $smallest_prime ) {
     $digits++;
+    $smallest_prime = get_smallest_prime($digits);
+}
+
+printf "%d\n", $smallest_prime;
+
+sub get_smallest_prime {
+    my ($digits) = @_;    ## no critic (ProhibitReusedNames)
+
     my $limit  = 10**$digits - 1;            ## no critic (ProhibitMagicNumbers)
     my @primes = get_primes_up_to($limit);
     @primes = grep { length $_ == $digits } @primes;
@@ -51,19 +59,16 @@ DIGITS: while (1) {
                     ## use critic
                     my $prime = $prime_base;
                     $prime =~ s/x/$replace/xmsg;
-                    ## no critic (ProhibitDeepNests)
                     if ( $is_prime{$prime} ) {
-                        ## use critic
-                        $smallest_prime = $prime;
-                        last DIGITS;
+                        return $prime;
                     }
                 }
             }
         }
     }
-}
 
-printf "%d\n", $smallest_prime;
+    return;
+}
 
 sub get_primes_up_to {
     my ($limit) = @_;
