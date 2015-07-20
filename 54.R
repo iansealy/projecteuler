@@ -27,7 +27,9 @@ score <- function(hand) {
     }
 
     straight <- FALSE
-    if ( length(rank_count) == 5 && as.integer(as.hexmode(ranks[5])) - as.integer(as.hexmode(ranks[1])) == 4 ) {
+    low <- as.integer(as.hexmode(ranks[1]))
+    high <- as.integer(as.hexmode(ranks[5]))
+    if ( length(rank_count) == 5 && high - low == 4 ) {
         straight <- TRUE
     }
 
@@ -67,7 +69,9 @@ score <- function(hand) {
 
 player1_wins <- 0
 
-hands <- suppressWarnings(read.delim(sub('https', 'http', HANDS_URL), header=FALSE, sep=' ', colClasses='character'))
+hands <- suppressWarnings(read.delim(sub('https', 'http', HANDS_URL),
+                                     header=FALSE, sep=' ',
+                                     colClasses='character'))
 for ( i in 1:nrow(hands) ) {
     hand1 <- hands[i,1:5]
     hand2 <- hands[i,6:10]
