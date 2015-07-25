@@ -42,10 +42,10 @@ def get_factorial_digits(limit):
         new_digits = []
         carry = 0
         for digit in digits:
-            digit_sum = digit * num + carry
-            new_digits.append(int(str(digit_sum)[-1]))
-            if digit_sum >= 10:
-                carry = int(str(digit_sum)[:-1])
+            digit_product = digit * num + carry
+            new_digits.append(int(str(digit_product)[-1]))
+            if digit_product >= 10:
+                carry = int(str(digit_product)[:-1])
             else:
                 carry = 0
         if carry:

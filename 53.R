@@ -11,11 +11,11 @@ get_factorial_digits <- function(limit) {
         new_digits <- vector()
         carry <- 0
         for ( digit in digits ) {
-            sum <- digit * num + carry
-            last_digit <- as.integer(substr(sum, nchar(sum), nchar(sum)))
+            prod <- digit * num + carry
+            last_digit <- as.integer(substr(prod, nchar(prod), nchar(prod)))
             new_digits <- c(new_digits, last_digit)
-            if ( sum >= 10 ) {
-                carry <- as.integer(substr(sum, 1, nchar(sum)-1))
+            if ( prod >= 10 ) {
+                carry <- as.integer(substr(prod, 1, nchar(prod)-1))
             } else {
                 carry <- 0
             }

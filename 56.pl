@@ -34,12 +34,12 @@ foreach my $a ( 2 .. $LIMIT ) {
         my @new_digits;
         my $carry = 0;
         foreach my $digit (@digits) {
-            my $sum = $digit * $a + ( $carry || 0 );
+            my $product = $digit * $a + ( $carry || 0 );
             ## no critic (ProhibitMagicNumbers)
-            my $last_digit_of_sum = substr $sum, -1, 1, q{};
+            my $last_digit_of_product = substr $product, -1, 1, q{};
             ## use critic
-            push @new_digits, $last_digit_of_sum;
-            $carry = $sum;
+            push @new_digits, $last_digit_of_product;
+            $carry = $product;
         }
         my @carry_digits = split //xms, $carry;
         push @new_digits, reverse @carry_digits;
