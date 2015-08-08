@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-"""This script solves the Project Euler problem "Prime digit replacements".
-Find the smallest prime which, by replacing part of the number (not necessarily
-adjacent digits) with the same digit, is part of an eight prime value family.
+"""This script solves the Project Euler problem "Prime digit replacements". The
+problem is: Find the smallest prime which, by replacing part of the number (not
+necessarily adjacent digits) with the same digit, is part of an eight prime
+value family.
 """
 
 from __future__ import division
