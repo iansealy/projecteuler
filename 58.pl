@@ -119,7 +119,6 @@ diagonals first falls below 10%?
 =head1 USAGE
 
     58.pl
-        [--width INT]
         [--debug]
         [--help]
         [--man]
@@ -127,10 +126,6 @@ diagonals first falls below 10%?
 =head1 OPTIONS
 
 =over 8
-
-=item B<--width INT>
-
-The width of the number spiral.
 
 =item B<--debug>
 
