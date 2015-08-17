@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # PODNAME: 63.pl
-# ABSTRACT: Spiral primes
+# ABSTRACT: Powerful digit counts
 
 ## Author     : ian.sealy@sanger.ac.uk
 ## Maintainer : ian.sealy@sanger.ac.uk
