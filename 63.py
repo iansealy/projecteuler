@@ -22,7 +22,7 @@ def main():
             power = pow(num, n)
             if len(str(power)) == n:
                 count += 1
-                match_seen = 1
+                match_seen = True
 
     print(count)
 
