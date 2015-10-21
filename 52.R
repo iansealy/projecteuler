@@ -1,7 +1,7 @@
 # Permuted multiples
 
 num <- 0
-while (TRUE) {
+while ( TRUE ) {
     num <- num + 1
     if ( strsplit(as.character(num), split=NULL)[[1]][1] != "1" ) {
         next
