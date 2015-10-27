@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-"""This script solves the Project Euler problem "Path sum: two ways".
-The problem is: Find the minimal path sum, in matrix.txt, a 31K text file
+"""This script solves the Project Euler problem "Path sum: two ways". The
+problem is: Find the minimal path sum, in matrix.txt, a 31K text file
 containing a 80 by 80 matrix, from the top left to the bottom right by only
 moving right and down.
 """
@@ -44,7 +44,7 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Coin partitions')
+    parser = argparse.ArgumentParser(description='Path sum: two ways')
     parser.add_argument(
         'url', metavar='URL', type=str,
         default='https://projecteuler.net/project/resources/p081_matrix.txt',
