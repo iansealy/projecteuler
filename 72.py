@@ -12,7 +12,7 @@ import argparse
 def main(args):
     """Counting fractions"""
 
-    sieve = range(args.limit + 1)
+    sieve = list(range(args.limit + 1))
     for i in range(2, args.limit + 1):
         if sieve[i] == i:
             multiple = i
