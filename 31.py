@@ -4,7 +4,10 @@
 How many different ways can 200p be made using any number of coins?
 """
 
-from functools import lru_cache
+try:
+    from functools import lru_cache
+except ImportError:
+    from functools32 import lru_cache
 
 
 def main():

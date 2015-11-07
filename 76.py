@@ -7,7 +7,10 @@ least two positive integers?
 
 from __future__ import division
 import argparse
-from functools import lru_cache
+try:
+    from functools import lru_cache
+except ImportError:
+    from functools32 import lru_cache
 
 
 def main(args):
