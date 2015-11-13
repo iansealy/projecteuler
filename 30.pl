@@ -16,9 +16,7 @@ use Carp;
 use version; our $VERSION = qv('v0.1.0');
 
 # Default options
-## no critic (ProhibitMagicNumbers)
-my $power = 5;
-## use critic
+my $power = 5;    ## no critic (ProhibitMagicNumbers)
 my ( $debug, $help, $man );
 
 # Get and check command line options
