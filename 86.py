@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 """This script solves the Project Euler problem "Cuboid route". The problem is:
-Find the first four consecutive integers to have four distinct
-prime factors. What is the first of these numbers?
+Find the least value of M such that the number of solutions first exceeds one
+million.
 """
 
 import argparse
