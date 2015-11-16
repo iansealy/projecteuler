@@ -15,9 +15,6 @@ use Pod::Usage;
 use Carp;
 use version; our $VERSION = qv('v0.1.0');
 
-use Algorithm::Combinatorics qw(partitions);
-use Storable qw(freeze);
-
 # Default options
 my $max = 12_000;    ## no critic (ProhibitMagicNumbers)
 my ( $debug, $help, $man );
@@ -25,33 +22,29 @@ my ( $debug, $help, $man );
 # Get and check command line options
 get_and_check_options();
 
-my @primes = get_primes_up_to( $max * 2 );
-
+my %factors_for;
 my %min_prod_sum_for;
 
 foreach my $n ( 2 .. $max * 2 ) {
-    my @prime_factors = get_prime_factors( $n, \@primes );
-    next if scalar @prime_factors == 1;
-    my %seen;
-    my $partitions_iterator = partitions( \@prime_factors );
-    while ( my $partitions = $partitions_iterator->next ) {
-        next if scalar @{$partitions} == 1;
-        @{$partitions} = sort { scalar @{$a} <=> scalar @{$b} } @{$partitions};
-        my $serialised = freeze($partitions);
-        next if exists $seen{$serialised};
-        $seen{$serialised} = 1;
-        my @factors;
+    foreach my $low_factor ( 2 .. int sqrt $n ) {
+        next if $n % $low_factor != 0;
+        my $high_factor = $n / $low_factor;
+        push @{ $factors_for{$n} }, [ $low_factor, $high_factor ];
+        foreach my $factors ( @{ $factors_for{$high_factor} } ) {
+            next if $low_factor > $factors->[0];
+            push @{ $factors_for{$n} }, [ $low_factor, @{$factors} ];
+        }
+    }
+}
+
+foreach my $n ( 2 .. $max * 2 ) {
+    foreach my $factors ( @{ $factors_for{$n} } ) {
         my $sum = 0;
-        foreach my $partition ( @{$partitions} ) {
-            my $factor = 1;
-            foreach my $number ( @{$partition} ) {
-                $factor *= $number;
-            }
-            push @factors, $factor;
+        foreach my $factor ( @{$factors} ) {
             $sum += $factor;
         }
         next if $sum > $n;
-        my $k = $n - $sum + scalar @factors;
+        my $k = $n - $sum + scalar @{$factors};
         next if $k > $max;
         if ( !exists $min_prod_sum_for{$k} || $min_prod_sum_for{$k} > $n ) {
             $min_prod_sum_for{$k} = $n;
@@ -66,49 +59,6 @@ foreach my $prod_sum ( keys %prod_sum ) {
 }
 
 printf "%d\n", $sum_of_sums;
-
-sub get_primes_up_to {
-    my ($limit) = @_;
-
-    my $sieve_bound = int( ( $limit - 1 ) / 2 );    # Last index of sieve
-    my @sieve;
-    my $cross_limit = int( ( int( sqrt $limit ) - 1 ) / 2 );
-    foreach my $i ( 1 .. $cross_limit ) {
-        if ( !$sieve[ $i - 1 ] ) {
-
-            # 2 * $i + 1 is prime, so mark multiples
-            my $j = 2 * $i * ( $i + 1 );
-            while ( $j <= $sieve_bound ) {
-                $sieve[ $j - 1 ] = 1;
-                $j += 2 * $i + 1;
-            }
-        }
-    }
-
-    my @primes_up_to = (2);
-    foreach my $i ( 1 .. $sieve_bound ) {
-        if ( !$sieve[ $i - 1 ] ) {
-            push @primes_up_to, 2 * $i + 1;
-        }
-    }
-
-    return @primes_up_to;
-}
-
-sub get_prime_factors {
-    my ( $number, $primes ) = @_;
-
-    my @factors;
-
-    foreach my $prime ( @{$primes} ) {
-        while ( $number % $prime == 0 ) {
-            push @factors, $prime;
-            $number /= $prime;
-        }
-    }
-
-    return @factors;
-}
 
 # Get and check command line options
 sub get_and_check_options {
