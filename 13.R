@@ -1,5 +1,7 @@
 # Large sum
 
+options(scipen=50)
+
 # Constants
 NUMBERS <- "37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -102,31 +104,6 @@ NUMBERS <- "37107287533902102798797998220837590246510135740250
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690"
 
-nums <- strsplit(NUMBERS, "\n")[[1]]
+nums <- sum(as.numeric(strsplit(NUMBERS, "\n")[[1]]))
 
-sum <- vector()
-carry <- 0
-while ( TRUE ) {
-    if ( !sum(nchar(nums)) ) {
-        # No more numbers left to add
-        break
-    }
-
-    # Get last digit (if any) from each number and sum them (plus carry over)
-    last_digit_sum <- sum(as.integer(substr(nums, nchar(nums), nchar(nums))))
-    substr(nums, nchar(nums), nchar(nums)) <- ""
-    last_digit_sum <- last_digit_sum + carry
-
-    # Add last digit to sum and keep carry over
-    last_digit <- as.integer(substr(last_digit_sum, nchar(last_digit_sum),
-                                    nchar(last_digit_sum)))
-    sum <- c(last_digit, sum)
-    carry <- as.integer(substr(last_digit_sum, 1, nchar(last_digit_sum)-1))
-}
-if ( carry ) {
-    sum <- c(carry, sum)
-}
-
-sum <- paste(sum, collapse="")
-
-cat(substr(sum, 1, 10), fill=TRUE)
+cat(substr(nums, 1, 10), fill=TRUE)
