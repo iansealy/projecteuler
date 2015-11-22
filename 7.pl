@@ -23,16 +23,14 @@ my ( $debug, $help, $man );
 get_and_check_options();
 
 ## no critic (ProhibitMagicNumbers)
-my %is_prime = ( 2 => 1, 3 => 1 );
+my @primes = ( 2, 3 );
 my $num = 5;
 ## use critic
 
-my $primes_got = 2;
-
-while ( $primes_got < $ordinal ) {
+while ( scalar @primes < $ordinal ) {
     my $is_prime = 1;
     my $num_sqrt = int sqrt $num;
-    foreach my $prime ( sort { $a <=> $b } keys %is_prime ) {
+    foreach my $prime (@primes) {
         last if $prime > $num_sqrt;
         if ( $num % $prime == 0 ) {
             $is_prime = 0;
@@ -40,15 +38,12 @@ while ( $primes_got < $ordinal ) {
         }
     }
     if ($is_prime) {
-        $is_prime{$num} = 1;
-        $primes_got++;
+        push @primes, $num;
     }
     $num += 2;
 }
 
-my $last_prime = ( reverse sort { $a <=> $b } keys %is_prime )[0];
-
-printf "%d\n", $last_prime;
+printf "%d\n", $primes[-1];
 
 # Get and check command line options
 sub get_and_check_options {

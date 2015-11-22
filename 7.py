@@ -11,22 +11,20 @@ import math
 def main(args):
     """10001st prime"""
 
-    primes = set([2, 3])
+    primes = [2, 3]
     num = 5
-    primes_got = 2
 
-    while primes_got < args.ordinal:
+    while len(primes) < args.ordinal:
         is_prime = True
         num_sqrt = int(math.sqrt(num))
-        for prime in sorted(primes):
+        for prime in primes:
             if prime > num_sqrt:
                 break
             if num % prime == 0:
                 is_prime = False
                 break
         if is_prime:
-            primes.add(num)
-            primes_got += 1
+            primes.append(num)
         num += 2
 
     print(max(primes))
