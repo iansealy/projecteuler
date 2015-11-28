@@ -81,11 +81,11 @@ not exceed four million, find the sum of the even-valued terms.
 
 =head1 EXAMPLES
 
-    perl 1.pl
+    perl 2.pl
 
 =head1 USAGE
 
-    1.pl
+    2.pl
         [--debug]
         [--help]
         [--man]
