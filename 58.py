@@ -38,7 +38,7 @@ def is_prime(num):
         return False
     if num < 4:       # 2 and 3 are prime
         return True
-    if num % 2 == 0:  # Odd numbers aren't prime
+    if num % 2 == 0:  # Even numbers aren't prime
         return False
     if num < 9:       # 5 and 7 are prime
         return True

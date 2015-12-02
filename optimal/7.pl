@@ -40,7 +40,7 @@ sub is_prime {
     return 0 if $num == 1;    # 1 isn't prime
     ## no critic (ProhibitMagicNumbers)
     return 1 if $num < 4;         # 2 and 3 are prime
-    return 0 if $num % 2 == 0;    # Odd numbers aren't prime
+    return 0 if $num % 2 == 0;    # Even numbers aren't prime
     return 1 if $num < 9;         # 5 and 7 are prime
     return 0 if $num % 3 == 0;    # Numbers divisible by 3 aren't prime
     ## use critic
