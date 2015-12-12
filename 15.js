@@ -7,8 +7,7 @@ var program = require('commander');
 program
     .version('0.1.0')
     .description('Lattice paths')
-    .option('-g, --grid_size <int>',
-        'The size of the grid', Number, 20)
+    .option('-g, --grid_size <int>', 'The size of the grid', Number, 20)
     .parse(process.argv);
 
 var size = program.grid_size;
