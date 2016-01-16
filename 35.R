@@ -32,16 +32,23 @@ get_primes_up_to <- function(limit) {
 }
 
 primes <- get_primes_up_to(max - 1)
+is_prime <- new.env(hash=TRUE)
+for ( prime in primes ) {
+    assign(as.character(prime), TRUE, is_prime)
+}
 
 circular <- vector()
 for ( prime in primes ) {
     rotations <- vector()
     digits <- nchar(prime)
+    is_circular <- TRUE
     for ( i in seq(digits) ) {
         prime <- prime %% 10 * 10 ^ (digits - 1) + prime %/% 10
-        rotations <- c(rotations, prime)
+        if ( !exists(as.character(prime), is_prime) ) {
+            is_circular <- FALSE
+        }
     }
-    if ( all(rotations %in% primes) ) {
+    if ( is_circular ) {
         circular <- c(circular, prime)
     }
 }
