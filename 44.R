@@ -1,23 +1,20 @@
 # Pentagon numbers
 
-is_pentagonal <- new.env(hash=TRUE)
-assign(as.character(1), TRUE, is_pentagonal)
-pentagons <- 1
-diff <- 0
-n <- 1
-while ( !diff ) {
-    n <- n + 1
-    next_pentagon <- n * (3 * n - 1) / 2
-    candidates <- next_pentagon - pentagons
-    candidate_diffs <- abs(pentagons - candidates)
-    for ( i in seq.int(length(pentagons)) ) {
-        if ( exists(as.character(candidates[i]), is_pentagonal) &&
-            exists(as.character(candidate_diffs[i]), is_pentagonal) ) {
-            diff <- candidate_diffs[i]
-        }
+limit <- 10
+min_diff <- NA
+while ( is.na(min_diff) ) {
+    limit <- limit * 10
+    num <- 1:limit
+    pentagon <- num * (3 * num - 1) / 2
+    df <- expand.grid(pentagon1=pentagon, pentagon2=pentagon)
+    df <- df[df$pentagon1 > df$pentagon2,]
+    df$sum <- df$pentagon1 + df$pentagon2
+    df$diff <- df$pentagon1 - df$pentagon2
+    df <- df[df$sum %in% pentagon,]
+    df <- df[df$diff %in% pentagon,]
+    if ( nrow(df) ) {
+        min_diff <- min(df$diff)
     }
-    pentagons <- c(next_pentagon, pentagons)
-    assign(as.character(next_pentagon), TRUE, is_pentagonal)
 }
 
-cat(diff, fill=TRUE)
+cat(min_diff, fill=TRUE)
