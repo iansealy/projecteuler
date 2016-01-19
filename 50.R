@@ -46,8 +46,8 @@ for ( i in seq.int(length(primes)) ) {
         if ( total > limit ) {
             break
         }
-        if ( exists(as.character(total), is_prime) &&
-            j - i > max_consecutive ) {
+        if ( j - i > max_consecutive &&
+            exists(as.character(total), is_prime) ) {
             max_consecutive <- j - i
             max_prime <- total
         }
