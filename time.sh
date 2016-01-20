@@ -9,5 +9,5 @@ function timing {
 
 timing pl perl
 timing py python
-timing R  Rscript
 timing js node
+timing R  Rscript
