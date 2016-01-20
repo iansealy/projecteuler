@@ -6,7 +6,7 @@ var KNOWN = '148748178147';
 
 var primes = get_primes_up_to(9999);
 primes = primes.filter(function(n) {
-    return n > 1000
+    return n > 1000;
 });
 
 var perm_groups = {};
