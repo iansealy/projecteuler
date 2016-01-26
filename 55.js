@@ -23,8 +23,7 @@ for (var num = 1; num < LIMIT; num++) {
 console.log(count);
 
 function add_reverse(digits) {
-    var reverse_digits = digits.slice();
-    reverse_digits.reverse();
+    var reverse_digits = digits.slice().reverse();
     var new_digits = [];
     var carry = 0;
     for (var i = 0; i < digits.length; i++) {
@@ -45,7 +44,6 @@ function add_reverse(digits) {
 }
 
 function is_palindrome(digits) {
-    var reverse_digits = digits.slice();
-    reverse_digits.reverse();
+    var reverse_digits = digits.slice().reverse();
     return digits.join('') == reverse_digits.join('');
 }
