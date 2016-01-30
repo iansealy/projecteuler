@@ -56,8 +56,7 @@ function score(hand) {
     ranks.sort();
     var rank_counts = Object.keys(rank_count).map(function(rank) {
         return rank_count[rank];
-    });
-    rank_counts.sort();
+    }).sort();
 
     var flush = false;
     if (Object.keys(suit_count).length == 1) {
@@ -92,8 +91,7 @@ function score(hand) {
     }
     score = score.toString();
 
-    ranks = Object.keys(rank_count);
-    ranks.sort(function(a, b) {
+    ranks = Object.keys(rank_count).sort(function(a, b) {
         if (rank_count[a] > rank_count[b]) {
             return -1;
         } else if (rank_count[a] < rank_count[b]) {

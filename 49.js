@@ -11,8 +11,7 @@ primes = primes.filter(function(n) {
 
 var perm_groups = {};
 for (var i = 0; i < primes.length; i++) {
-    var digits = primes[i].toString().split('');
-    digits.sort();
+    var digits = primes[i].toString().split('').sort();
     var ordered_digits = digits.join('');
     if (!perm_groups[ordered_digits]) {
         perm_groups[ordered_digits] = [];

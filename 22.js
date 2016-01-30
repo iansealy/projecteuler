@@ -7,13 +7,11 @@ var NAMES_URL = 'https://projecteuler.net/project/resources/p022_names.txt';
 var request = require('request');
 request(NAMES_URL, function(error, response, body) {
     if (!error && response.statusCode == 200) {
-        score_names(body.replace(/"/g, "").split(","));
+        score_names(body.replace(/"/g, "").split(",").sort());
     }
 });
 
 function score_names(names) {
-    names.sort();
-
     var total = 0;
 
     for (var i = 0; i < names.length; i++) {
