@@ -15,7 +15,6 @@ program
         'The number of digits in the solution', Number, 16)
     .parse(process.argv);
 
-var bigint = require('big-integer');
 var combinatorics = require('js-combinatorics');
 var sum = require('compute-sum');
 
