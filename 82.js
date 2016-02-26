@@ -7,7 +7,7 @@ var program = require('commander');
 program
     .version('0.1.0')
     .description('Path sum: three ways')
-    .option('-u, --url <int>', 'Matrix URL',
+    .option('-u, --url <URL>', 'Matrix URL',
         'https://projecteuler.net/project/resources/p082_matrix.txt')
     .parse(process.argv);
 
