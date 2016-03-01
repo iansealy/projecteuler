@@ -5,13 +5,17 @@ target <- ifelse(is.na(Args[6]), 1000000, as.numeric(Args[6]))
 
 total <- 0
 m <- 1
-m <- 3
 while ( total < target ) {
-    df <- expand.grid(i=seq.int(m), j=seq.int(m))
-    df <- df[df$i >= df$j,]
-    df$route <- sqrt((df$i + df$j) * (df$i + df$j) + m * m)
-    df$introute <- as.integer(df$route)
-    total <- total + sum(df$introute == df$route)
+    for ( ij in seq.int(2 * m) ) {
+        route = sqrt(ij * ij + m * m)
+        if ( as.integer(route) == route ) {
+            if ( ij <= m ) {
+                total <- total + ij %/% 2
+            } else {
+                total <- total + m - (ij + 1) %/% 2 + 1
+            }
+        }
+    }
     m <- m + 1
 }
 

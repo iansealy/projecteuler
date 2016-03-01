@@ -5,6 +5,7 @@ Find the least value of M such that the number of solutions first exceeds one
 million.
 """
 
+from __future__ import division
 import argparse
 import math
 
@@ -15,11 +16,13 @@ def main(args):
     total = 0
     m = 1
     while total < args.target:
-        for i in range(1, m + 1):
-            for j in range(i, m + 1):
-                route = math.sqrt((i + j) * (i + j) + m * m)
-                if int(route) == route:
-                    total += 1
+        for ij in range(1, 2 * m + 1):
+            route = math.sqrt(ij * ij + m * m)
+            if int(route) == route:
+                if ij <= m:
+                    total += ij // 2
+                else:
+                    total += m - (ij + 1) // 2 + 1
         m += 1
 
     print(m - 1)

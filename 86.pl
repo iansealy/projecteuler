@@ -25,14 +25,17 @@ get_and_check_options();
 my $total = 0;
 my $m     = 1;
 M: while (1) {
-    foreach my $i ( 1 .. $m ) {
-        foreach my $j ( $i .. $m ) {
-            my $route = sqrt( ( $i + $j ) * ( $i + $j ) + $m * $m );
-            if ( int $route == $route ) {
-                $total++;
+    foreach my $ij ( 1 .. 2 * $m ) {
+        my $route = sqrt( $ij * $ij + $m * $m );
+        if ( int $route == $route ) {
+            if ( $ij <= $m ) {
+                $total += int $ij / 2;
             }
-            last M if $total > $target;
+            else {
+                $total += $m - int( ( $ij + 1 ) / 2 ) + 1;
+            }
         }
+        last M if $total > $target;
     }
     $m++;
 }
