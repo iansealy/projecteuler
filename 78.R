@@ -2,7 +2,7 @@
 
 library(memoise)
 
-Args   <- commandArgs()
+Args    <- commandArgs()
 divisor <- ifelse(is.na(Args[6]), 1e6, as.numeric(Args[6]))
 
 partitions <- memoise(function(n) {
