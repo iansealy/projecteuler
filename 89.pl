@@ -207,7 +207,7 @@ Ian Sealy <ian.sealy@sanger.ac.uk>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2015 by Genome Research Ltd.
+This software is Copyright (c) 2016 by Genome Research Ltd.
 
 This is free software, licensed under:
 
