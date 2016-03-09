@@ -118,7 +118,7 @@ version 0.1.0
 
 This script solves the Project Euler problem "Cube digit pairs". The problem is:
 How many distinct arrangements of the two cubes allow for all of the square
- numbers to be displayed?
+numbers to be displayed?
 
 =head1 EXAMPLES
 
