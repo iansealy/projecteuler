@@ -29,15 +29,16 @@ get_and_check_options();
 
 my $best_numer = 0;
 my $best_denom = 1;
-my $cur_denom = $limit;
-my $min_denom = 1;
-while ($cur_denom >= $min_denom) {
-    my $cur_numer = int(($TARGET_FRAC[0] * $cur_denom - 1) / $TARGET_FRAC[1]);
-    if ($best_numer * $cur_denom < $cur_numer * $best_denom) {
+my $cur_denom  = $limit;
+my $min_denom  = 1;
+while ( $cur_denom >= $min_denom ) {
+    my $cur_numer =
+      int( ( $TARGET_FRAC[0] * $cur_denom - 1 ) / $TARGET_FRAC[1] );
+    if ( $best_numer * $cur_denom < $cur_numer * $best_denom ) {
         $best_numer = $cur_numer;
         $best_denom = $cur_denom;
         my $delta = $TARGET_FRAC[0] * $cur_denom - $TARGET_FRAC[1] * $cur_numer;
-        $min_denom = int($cur_denom / $delta) + 1
+        $min_denom = int( $cur_denom / $delta ) + 1;
     }
     $cur_denom--;
 }
