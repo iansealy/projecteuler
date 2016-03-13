@@ -36,8 +36,7 @@ def sum_divisors(number):
     return(sum)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Amicable numbers')
+    parser = argparse.ArgumentParser(description='Amicable numbers')
     parser.add_argument(
         'limit', metavar='LIMIT', type=int, default=10000, nargs='?',
         help='The maximum amicable number')
