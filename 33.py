@@ -23,8 +23,8 @@ def main():
             denom2 = int(str(denom)[1:2])
             if denom2 == 0:
                 continue
-            if ((num1 == denom2 and num2 / denom1 == num / denom)
-                    or (num2 == denom1 and num1 / denom2 == num / denom)):
+            if ((num1 == denom2 and num2 / denom1 == num / denom) or
+                    (num2 == denom1 and num1 / denom2 == num / denom)):
                 num_product *= num
                 denom_product *= denom
 

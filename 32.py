@@ -31,8 +31,8 @@ def get_products(low_multiplicand, high_multiplicand, low_multiplier,
             product = multiplicand * multiplier
             if product >= 10000 or '0' in str(product):
                 continue
-            digits = set(i for i in str(multiplicand) + str(multiplier)
-                         + str(product))
+            digits = set(i for i in str(multiplicand) + str(multiplier) +
+                         str(product))
             if len(digits) == 9:
                 products.add(product)
 
