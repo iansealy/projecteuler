@@ -24,7 +24,6 @@ Readonly our $SUDOKU_URL =>
   'https://projecteuler.net/project/resources/p096_sudoku.txt';
 Readonly our $NINE       => 9;
 Readonly our @NUMS       => ( 1 .. 9 );
-Readonly our $TARGET     => sum( 1 .. 9 ) * 9;
 Readonly our $LAST       => 9 * 9 - 1;
 Readonly our @BOX_STARTS => ( 0, 3, 6, 27, 30, 33, 54, 57, 60 );
 

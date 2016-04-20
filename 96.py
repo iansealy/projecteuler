@@ -19,8 +19,6 @@ def main():
 
     # Constants
     URL = 'https://projecteuler.net/project/resources/p096_sudoku.txt'
-    global TARGET
-    TARGET = sum(range(1, 10)) * 9
     global LAST
     LAST = 9 * 9 - 1
     global BOX_STARTS
