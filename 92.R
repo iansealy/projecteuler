@@ -11,7 +11,7 @@ for ( num in seq.int(2, 9 * 9 * 7) ) {
     chain <- vector()
     final <- 1
     n <- num
-    while (TRUE) {
+    while ( TRUE ) {
         if ( cache[n] ) {
             final <- cache[n]
             break
