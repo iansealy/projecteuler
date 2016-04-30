@@ -52,7 +52,7 @@ def main():
     for anagram_set in anagrams:
         # Get all pairs of anagrams
         for pair in combinations(anagram_set, 2):
-            squares = all_squares[len(str(pair[0]))]
+            squares = all_squares[len(pair[0])]
             for square in squares:
                 translation = dict(zip(list(pair[0]), list(str(square))))
                 if len(set(translation.values())) != len(translation):
