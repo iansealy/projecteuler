@@ -30,11 +30,10 @@ Readonly our $DIGITS    => 9;
 Readonly our $LOG_PHI   => log10( ( 1 + sqrt 5 ) / 2 );
 Readonly our $LOG_ROOT5 => log10(5) / 2;
 
-my $k               = 2;
-my @fib1            = (1);
-my @fib2            = (1);
-my $ends_pandigital = 0;
-while ( !$ends_pandigital ) {
+my $k    = 2;
+my @fib1 = (1);
+my @fib2 = (1);
+while (1) {
     $k++;
     my $carry = 0;
     my @sum;
