@@ -122,9 +122,10 @@ sub optimum_set {
             my ( $i, $j ) = @{$pair};
             next if $lengths[$i] == $lengths[$j];
             next if $sums[$i] == $sums[$j];
-            next if !disjoint( $subsets[$i], $subsets[$j] );
-            next SET if $lengths[$i] > $lengths[$j] && $sums[$i] < $sums[$j];
-            next SET if $lengths[$j] > $lengths[$i] && $sums[$j] < $sums[$i];
+            next SET
+              if ( ( $lengths[$i] > $lengths[$j] && $sums[$i] < $sums[$j] )
+                || ( $lengths[$j] > $lengths[$i] && $sums[$j] < $sums[$i] ) )
+              && disjoint( $subsets[$i], $subsets[$j] );
         }
 
         $optimum_sum = $set_sum;
