@@ -74,7 +74,7 @@ function optimum_set(algo_set) {
             for (var j = 0; j < subset_idxs[i].length; j++) {
                 subset.push(set[subset_idxs[i][j]]);
             }
-            subsets.push(subset);
+            subsets.push(subset.sort(num_sort));
             sums.push(sum(subset));
             lengths.push(subset.length);
         }
@@ -110,27 +110,13 @@ function optimum_set(algo_set) {
         var indices = Array.apply(null, {
             length: subsets.length
         }).map(Number.call, Number);
-        var pair_iterator = combinatorics.combination(indices, 2);
-        var pair;
-        while (pair = pair_iterator.next()) {
-            var x = pair[0];
-            var y = pair[1];
-            if (lengths[x] == lengths[y]) {
-                continue;
-            }
-            if (sums[x] == sums[y]) {
-                continue;
-            }
-            if (intersection(subsets[x], subsets[y]).length) {
-                continue;
-            }
-            if (lengths[x] > lengths[y] && sums[x] < sums[y]) {
-                got_disjoint_diff = true;
-                break;
-            }
-            if (lengths[y] > lengths[x] && sums[y] < sums[x]) {
-                got_disjoint_diff = true;
-                break;
+        for (var i = 0; i < subsets.length; i++) {
+            for (var j = 0; j < subsets.length; j++) {
+                if (lengths[i] < lengths[j] && sums[i] > sums[j] &&
+                    !intersection(subsets[i], subsets[j]).length) {
+                    got_disjoint_diff = true;
+                    break;
+                }
             }
         }
         if (got_disjoint_diff) {
