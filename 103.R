@@ -52,7 +52,7 @@ optimum_set <- function(algo_set) {
             pairs <- combinations(length(indices), 2, indices)
             for ( j in seq.int(nrow(pairs)) ) {
                 pair <- pairs[j,]
-                if ( !(subsets[pair[1]] %in% subsets[pair[2]]) ) {
+                if ( !length(intersect(subsets[pair[1]], subsets[pair[2]])) ) {
                     got_disjoint_eq_sum <- TRUE
                     break
                 }
@@ -73,7 +73,7 @@ optimum_set <- function(algo_set) {
             if ( sums[pair[1]] == sums[pair[2]] ) {
                 next
             }
-            if ( subsets[pair[1]] %in% subsets[pair[2]] ) {
+            if ( length(intersect(subsets[pair[1]], subsets[pair[2]])) ) {
                 next
             }
             if ( lengths[pair[1]] > lengths[pair[2]] &&
