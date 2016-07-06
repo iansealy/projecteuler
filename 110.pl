@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # PODNAME: 110.pl
-# ABSTRACT:Diophantine reciprocals II
+# ABSTRACT: Diophantine reciprocals II
 
 ## Author     : ian.sealy@sanger.ac.uk
 ## Maintainer : ian.sealy@sanger.ac.uk
