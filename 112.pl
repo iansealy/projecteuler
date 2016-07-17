@@ -87,7 +87,7 @@ __END__
 
 112.pl
 
-Primes with runs
+Bouncy numbers
 
 =head1 VERSION
 
