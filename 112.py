@@ -10,7 +10,7 @@ import argparse
 
 
 def main(args):
-    """Primes with runs"""
+    """Bouncy numbers"""
 
     total = 100
     bouncy = 0
