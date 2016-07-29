@@ -40,7 +40,7 @@ if __name__ == '__main__':
         description='Counting block combinations I')
     parser.add_argument(
         'units', metavar='UNITS', type=int, default=50, nargs='?',
-        help='Maximum value of n as an exponent of 10')
+        help='The length of the row')
     args = parser.parse_args()
 
     main(args)
