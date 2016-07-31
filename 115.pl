@@ -116,9 +116,9 @@ function first exceeds one million.
 
 =over 8
 
-=item B<--units INT>
+=item B<--m INT>
 
-The length of the row.
+Minimum block length.
 
 =item B<--debug>
 
