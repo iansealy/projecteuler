@@ -2,8 +2,6 @@
 
 library(memoise)
 
-#options(scipen=100)
-
 Args  <- commandArgs()
 units <- ifelse(is.na(Args[6]), 50, as.numeric(Args[6]))
 
