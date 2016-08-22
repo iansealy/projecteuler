@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """This script solves the Project Euler problem "Digit power sum". The problem
-is: What is the 10 001st prime number?
+is: Find a30.
 """
 
 import argparse
