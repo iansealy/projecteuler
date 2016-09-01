@@ -18,7 +18,6 @@ use version; our $VERSION = qv('v0.1.0');
 use Readonly;
 use LWP::Simple;
 use List::Util qw(sum notall);
-use List::MoreUtils qw(uniq);
 use Algorithm::Combinatorics qw(variations_with_repetition combinations);
 
 # Constants
