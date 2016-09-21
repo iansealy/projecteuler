@@ -41,7 +41,6 @@ while (1) {
             }
         }
     }
-    undef $first;
     foreach my $n ( 1 .. $limit ) {
         if ( defined $count[$n] && $count[$n] == $cuboids ) {
             $first = $n;
