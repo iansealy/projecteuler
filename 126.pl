@@ -24,7 +24,7 @@ get_and_check_options();
 
 my $first;
 my $limit = $cuboids * 10;    ## no critic (ProhibitMagicNumbers)
-while (1) {
+while ( !defined $first ) {
     $limit *= 2;
     my @count;
     foreach my $x ( 1 .. $limit ) {
@@ -47,7 +47,6 @@ while (1) {
             last;
         }
     }
-    last if defined $first;
 }
 
 printf "%d\n", $first;

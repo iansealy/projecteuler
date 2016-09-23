@@ -12,7 +12,7 @@ count_cuboids <- function(x, y, z, n) {
 
 first <- NA
 limit <- cuboids * 10
-while ( TRUE ) {
+while ( is.na(first) ) {
     limit <- limit * 2
     count <- rep(0, limit)
     for ( x in seq.int(limit) ) {
@@ -38,9 +38,6 @@ while ( TRUE ) {
         }
     }
     first <- which(count == cuboids)[1]
-    if ( !is.na(first) ) {
-        break
-    }
 }
 
 cat(first, fill=TRUE)
