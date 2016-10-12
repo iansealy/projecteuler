@@ -103,8 +103,8 @@ version 0.1.0
 =head1 DESCRIPTION
 
 This script solves the Project Euler problem "Composites with prime repunit
-property". Find the sum of the first twenty-five composite values of n for which
-GCD(n, 10) = 1 and n - 1 is divisible by A(n).
+property". The problem is: Find the sum of the first twenty-five composite
+values of n for which GCD(n, 10) = 1 and n - 1 is divisible by A(n).
 
 =head1 EXAMPLES
 
