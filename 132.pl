@@ -149,7 +149,7 @@ problem is: Find the sum of the first forty prime factors of R(10^9).
 
 =over 8
 
-=item B<--exponent INT>
+=item B<--k INT>
 
 The number of digits in the repunit.
 
