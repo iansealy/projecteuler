@@ -121,11 +121,11 @@ How many values of n less than one million have exactly ten distinct solutions?
 
 =over 8
 
-=item B<--k INT>
+=item B<--limit INT>
 
 The maximum value of n.
 
-=item B<--factors INT>
+=item B<--solutions INT>
 
 The number of distinct solutions.
 
