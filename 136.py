@@ -29,7 +29,7 @@ def main(args):
             if y - d < 1:
                 break
             n = y * (4 * d - y)
-            if n > args.limit:
+            if n < 1 or n > args.limit:
                 break
             count[n] += 1
 

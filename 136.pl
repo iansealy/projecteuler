@@ -40,7 +40,7 @@ foreach my $y ( 1 .. $limit ) {
 }
 
 printf "%d\n",
-  scalar grep { defined $count{$_} && $count{$_} == 1 } ( 1 .. $limit );
+  scalar grep { defined $count{$_} && $count{$_} == 1 } ( keys %count );
 
 # Get and check command line options
 sub get_and_check_options {
