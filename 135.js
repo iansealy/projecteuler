@@ -44,7 +44,7 @@ for (var d = 1; d <= program.limit; d++) {
 
 var total = 0;
 for (n in count) {
-    if (count[n] == 10) {
+    if (count[n] == program.solutions) {
         total++;
     }
 }
